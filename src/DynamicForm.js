@@ -32,7 +32,7 @@ function DynamicForm(props) {
         );
       })}
       <center>
-        <button className="button is-success" type="submit">
+        <button disabled={props.isLoading} className="button is-success" type="submit">
           Enviar
         </button>
       </center>

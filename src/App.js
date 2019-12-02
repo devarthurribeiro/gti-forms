@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DynamicForm from "./DynamicForm";
+import db from "./firebase"
 
 import form1 from "./forms/form1";
 import form2 from "./forms/form2";
@@ -9,14 +10,17 @@ import "./App.css";
 
 const forms = [
   {
+    ref: "pc",
     title: "Cadastro Computadores",
     schema: form1
   },
-  {
+  { 
+    ref: "monitor",
     title: "Cadastro Monitor",
     schema: form2
   },
   {
+    ref: "printer",
     title: "Cadastro Impressora",
     schema: form3
   }
@@ -24,9 +28,18 @@ const forms = [
 
 function App() {
   const [form, setForm] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(data) {
-    console.log(data);
+  async function handleSubmit(data) {
+    setLoading(true)
+    try {
+      await db.forms.collection(form.ref).add(data);
+      alert("Registro salvo!");
+      setLoading(false)
+    } catch (err) {
+      alert(err);
+      setLoading(false)
+    }
   }
 
   return (
@@ -55,7 +68,7 @@ function App() {
               </li>
             </ul>
           </nav>
-          <DynamicForm form={form.schema} onSubmit={handleSubmit} />
+          <DynamicForm form={form.schema} onSubmit={handleSubmit} isLoading={loading} />
         </div>
       )}
     </div>
