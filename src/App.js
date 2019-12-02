@@ -1,19 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import DynamicForm from "./DynamicForm";
 
 import form1 from "./forms/form1";
+import form2 from "./forms/form2";
 
 import "./App.css";
 
-function handleSubmit(data) {
-  console.log(data);
-}
+const forms = [
+  {
+    title: "Cadastro pc",
+    schema: form1
+  },
+  {
+    title: "Cadastro Monitor",
+    schema: form2
+  }
+];
 
 function App() {
+  const [form, setForm] = useState(null);
+
+  function handleSubmit(data) {
+    console.log(data);
+  }
+
   return (
-    <div className="App">
+    <div className="section">
       <h1 className="title">GTI forms</h1>
-      <DynamicForm form={form1} onSubmit={handleSubmit} />
+      {!form ? (
+        <div className="buttons center">
+          {forms.map(form => (
+            <button
+              className="button is-link is-rounded is-fullwidth"
+              onClick={() => setForm(form)}
+            >
+              {form.title}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div>
+          <nav className="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li onClick={() => setForm(null)}>
+                <a href="#">Forms</a>
+              </li>
+              <li>
+                <a href="#">{form.title}</a>
+              </li>
+            </ul>
+          </nav>
+          <DynamicForm form={form.schema} onSubmit={handleSubmit} />
+        </div>
+      )}
     </div>
   );
 }
