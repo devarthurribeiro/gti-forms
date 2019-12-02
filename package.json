@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@alifd/next": "^1.18.16",
+    "@firebase/app": "^0.4.25",
+    "@firebase/firestore": "^1.8.0",
     "@rocketseat/unform": "^1.6.1",
     "@uform/next": "^1.0.0-alpha.4",
     "react": "^16.12.0",
