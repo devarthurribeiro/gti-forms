@@ -3,17 +3,22 @@ import DynamicForm from "./DynamicForm";
 
 import form1 from "./forms/form1";
 import form2 from "./forms/form2";
+import form3 from "./forms/form3";
 
 import "./App.css";
 
 const forms = [
   {
-    title: "Cadastro pc",
+    title: "Cadastro Computadores",
     schema: form1
   },
   {
     title: "Cadastro Monitor",
     schema: form2
+  },
+  {
+    title: "Cadastro Impressora",
+    schema: form3
   }
 ];
 
