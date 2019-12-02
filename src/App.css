@@ -1,3 +1,10 @@
 .App {
-  text-align: center;
+  padding: 26px;
+}
+
+input, select {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  font-size: 12px;
 }

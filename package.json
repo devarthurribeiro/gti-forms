@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@alifd/next": "^1.18.16",
+    "@rocketseat/unform": "^1.6.1",
     "@uform/next": "^1.0.0-alpha.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
