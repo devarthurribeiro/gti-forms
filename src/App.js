@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import DynamicForm from "./DynamicForm";
-import db from "./firebase"
+import DynamicForm from "./components/DynamicForm";
+import db from "./services/firebase"
 
 import form1 from "./forms/form1";
 import form2 from "./forms/form2";
 import form3 from "./forms/form3";
 import form4 from "./forms/form4";
-
-import "./App.css";
 
 const forms = [
   {
