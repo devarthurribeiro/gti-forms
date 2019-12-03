@@ -5,7 +5,7 @@ function DynamicForm(props) {
   if (props.form === null) {
     return null;
   }
-  
+
   return (
     <Form onSubmit={props.onSubmit}>
       {props.form.map(input =>
@@ -13,22 +13,14 @@ function DynamicForm(props) {
           <div key={input.name} className="field">
             <div className="control">
               <div className="select is-fullwidth">
-                <Select
-                  name={input.name}
-                  placeholder={input.placeholder}
-                  options={input.options}
-                />
+                <Select {...input} />
               </div>
             </div>
           </div>
         ) : (
           <div key={input.name} className="field">
             <div className="control">
-              <Input
-                placeholder={input.placeholder}
-                name={input.name}
-                className="input is-fullwidth"
-              />
+              <Input {...input} className="input" />
             </div>
           </div>
         )
