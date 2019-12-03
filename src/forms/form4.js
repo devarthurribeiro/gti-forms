@@ -1,17 +1,22 @@
 const form4 = [
   {
-    name: "state",
+    name: "type",
     placeholder: "Tipo",
     type: "select",
     options: [
       { id: "1", title: "ESTABILIZADOR" },
-      { id: "2", title: "NOBREAK" },
+      { id: "2", title: "NOBREAK" }
     ]
   },
   {
-    name: "code",
-    placeholder: "Código und.",
-    type: "text"
+    name: "location",
+    placeholder: "Localizacao",
+    type: "select",
+    options: [
+      { id: "1", title: "Região 1" },
+      { id: "2", title: "Região 2" },
+      { id: "3", title: "Região 3" }
+    ]
   },
   {
     name: "tombo",
@@ -24,25 +29,25 @@ const form4 = [
     type: "text"
   },
   {
-    name:'brand',
-    placeholder: 'Fabricante',
-    type: 'text'
+    name: "brand",
+    placeholder: "Fabricante",
+    type: "text"
   },
   {
-    name:'model',
-    placeholder: 'Modelo',
-    type: 'text'
+    name: "model",
+    placeholder: "Modelo",
+    type: "text"
   },
   {
-    name:'power',
-    placeholder: 'Potencia',
-    type: 'text'
+    name: "power",
+    placeholder: "Potencia",
+    type: "text"
   },
-  { 
-    name:'pcName',
-    placeholder: 'Nome pc',
-    type: 'text'
-  },
+  {
+    name: "pcName",
+    placeholder: "Nome pc",
+    type: "text"
+  }
 ];
 
 export default form4;

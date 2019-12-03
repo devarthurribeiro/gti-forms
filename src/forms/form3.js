@@ -1,8 +1,13 @@
 const form3 = [
   {
-    name: "code",
-    placeholder: "Código und.",
-    type: "text"
+    name: "location",
+    placeholder: "Localizacao",
+    type: "select",
+    options: [
+      { id: "1", title: "Região 1" },
+      { id: "2", title: "Região 2" },
+      { id: "3", title: "Região 3" }
+    ]
   },
   {
     name: "tombo",
@@ -19,8 +24,8 @@ const form3 = [
     placeholder: "Locada ou própria",
     type: "select",
     options: [
-      { id: "1", title: "PRÓPRIA" },
-      { id: "2", title: "LOCADA" }
+      { id: "propria", title: "PRÓPRIA" },
+      { id: "locada", title: "LOCADA" }
     ]
   },
   {
@@ -28,18 +33,18 @@ const form3 = [
     placeholder: "Tipo do impressora",
     type: "select",
     options: [
-      { id: "1", title: "LASER" },
-      { id: "2", title: "JATO DE TINTA" },
-      { id: "3", title: "MATRICIAL" }
+      { id: "laser", title: "LASER" },
+      { id: "jato", title: "JATO DE TINTA" },
+      { id: "matricial", title: "MATRICIAL" }
     ]
   },
   {
-    name: "type",
+    name: "typeConnection",
     placeholder: "Conexão",
     type: "select",
     options: [
-      { id: "1", title: "REDE" },
-      { id: "2", title: "USB" }
+      { id: "network", title: "REDE" },
+      { id: "usb", title: "USB" }
     ]
   },
   {
@@ -47,8 +52,8 @@ const form3 = [
     placeholder: "Compartilhada",
     type: "text",
     options: [
-      { id: "1", title: "Sim" },
-      { id: "2", title: "Não" }
+      { id: 1, title: "Sim" },
+      { id: 0, title: "Não" }
     ]
   }
 ];
