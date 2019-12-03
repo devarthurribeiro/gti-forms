@@ -22,7 +22,13 @@ const form2 = [
   {
     name: "brand",
     placeholder: "Fabricante",
-    type: "text"
+    type: "select",
+    options: [
+      { id: "hp", title: "HP" },
+      { id: "dell", title: "dell" },
+      { id: "samsung", title: "samsung" },
+      { id: "aoc", title: "aoc" }
+    ]
   },
   {
     name: "model",
@@ -31,12 +37,12 @@ const form2 = [
   },
   {
     name: "size",
-    placeholder: "Fabricante cpu",
+    placeholder: "Tamanho",
     type: "text"
   },
   {
     name: "pcName",
-    placeholder: "Modelo cpu",
+    placeholder: "Nome pc",
     type: "text"
   }
 ];

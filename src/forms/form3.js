@@ -50,7 +50,7 @@ const form3 = [
   {
     name: "shared",
     placeholder: "Compartilhada",
-    type: "text",
+    type: "select",
     options: [
       { id: 1, title: "Sim" },
       { id: 0, title: "Não" }

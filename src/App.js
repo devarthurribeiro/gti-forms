@@ -5,6 +5,7 @@ import db from "./firebase"
 import form1 from "./forms/form1";
 import form2 from "./forms/form2";
 import form3 from "./forms/form3";
+import form4 from "./forms/form4";
 
 import "./App.css";
 
@@ -23,6 +24,11 @@ const forms = [
     ref: "printer",
     title: "Cadastro Impressora",
     schema: form3
+  },
+  {
+    ref: "power",
+    title: "Cadastro estabilizador/nobreak",
+    schema: form4
   }
 ];
 
