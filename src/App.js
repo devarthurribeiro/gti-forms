@@ -33,9 +33,16 @@ const forms = [
 function App() {
   const [form, setForm] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({});
+  
+  window.setInitData = function (d) {
+    console.log("ARTHUR")
+    setData(d)
+  }
 
   async function handleSubmit(data) {
     setLoading(true)
+    data.created = new Date()
     try {
       await db.forms.collection(form.ref).add(data);
       alert("Registro salvo!");
@@ -53,6 +60,7 @@ function App() {
         <div className="buttons center">
           {forms.map(form => (
             <button
+              key={form.ref}
               className="button is-link is-rounded is-fullwidth"
               onClick={() => setForm(form)}
             >
@@ -72,7 +80,7 @@ function App() {
               </li>
             </ul>
           </nav>
-          <DynamicForm form={form.schema} onSubmit={handleSubmit} isLoading={loading} />
+          <DynamicForm form={form.schema} onSubmit={handleSubmit} isLoading={loading} data={data} />
         </div>
       )}
     </div>
