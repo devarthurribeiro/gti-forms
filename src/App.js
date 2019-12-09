@@ -34,9 +34,8 @@ function App() {
   const [form, setForm] = useState(null);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
-  
+
   window.setInitData = function (d) {
-    console.log("ARTHUR")
     setData(d)
   }
 

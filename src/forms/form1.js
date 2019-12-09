@@ -11,7 +11,8 @@ const form1 = [
     options: [
       { id: "1", title: "Região 1" },
       { id: "2", title: "Região 2" },
-      { id: "3", title: "Região 3" }
+      { id: "3", title: "Região 3" },
+      { id: "4", title: "Região 4" }
     ]
   },
   {
