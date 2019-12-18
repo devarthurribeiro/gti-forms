@@ -6,7 +6,8 @@ const form2 = [
     options: [
       { id: "1", title: "Região 1" },
       { id: "2", title: "Região 2" },
-      { id: "3", title: "Região 3" }
+      { id: "3", title: "Região 3" },
+      { id: "4", title: "Região 4" }
     ]
   },
   {
@@ -27,7 +28,9 @@ const form2 = [
       { id: "hp", title: "HP" },
       { id: "dell", title: "dell" },
       { id: "samsung", title: "samsung" },
-      { id: "aoc", title: "aoc" }
+      { id: "aoc", title: "aoc" },
+      { id: "lg", title: "lg" }
+
     ]
   },
   {

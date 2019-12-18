@@ -111,6 +111,7 @@ const form1 = [
     options: [
       { id: 2, title: "2gb" },
       { id: 4, title: "4gb" },
+      { id: 6, title: "6gb" },
       { id: 8, title: "8gb" },
       { id: 16, title: "16gb" }
     ]
