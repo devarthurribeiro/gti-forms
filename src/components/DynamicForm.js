@@ -9,7 +9,7 @@ function DynamicForm(props) {
   return (
     <Form onSubmit={props.onSubmit} initialData={props.data}>
       {props.form.map(input =>
-        (input.type === 'select' && !props.data[input.name]) ? (
+        input.type === "select" && !props.data[input.name] ? (
           <div key={input.name} className="field">
             <div className="control">
               <div className="select is-fullwidth">
