@@ -57,7 +57,7 @@ function ListItem() {
   const { pcs, loading } = useCollection(ref, limit);
 
   return (
-    <nav className="panel">
+    <nav className="panel is-primary  ">
       <p className="panel-heading">Equipamentos</p>
       <div className="panel-block">
         <p className="control has-icons-left">
@@ -84,7 +84,7 @@ function ListItem() {
           </progress>
         </div>
       ) : (
-        <table className="table is-fullwidth">
+        <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
           <thead>
             {tables[ref].map(t => (
               <th>{t.title}</th>

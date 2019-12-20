@@ -18,7 +18,7 @@ function LockScreen() {
 
   return locked ? (
     <div className="lockscreen">
-      <div className="title">GTI Forms</div>
+      <div className="title">Insira o PIN</div>
       <br />
       <br />
       <div className="flex flex-center flex-wrap">
