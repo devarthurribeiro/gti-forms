@@ -55,7 +55,6 @@ function ListForms() {
 
   return (
     <div className="section">
-      <h1 className="title">GTI forms</h1>
       {!form ? (
         <div className="buttons center">
           {forms.map(form => (

@@ -1,33 +1,31 @@
-  import React, { useState } from "react";
-  import ListForms from "./components/ListForms";
+import React, { useState } from "react";
+import ListForms from "./components/ListForms";
+import LockScreen from "./components/LockScreen";
+import ListItem from "./components/ListItem";
+import MainMenu from "./components/MainMenu";
 
-  import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-  function App() {
-    return (
-      <Router>
+function App() {
+  return (
+    <Router>
+      <LockScreen />
+      <div className="section">
+        <div className="title">GTI forms</div>
         <Switch>
+          <Route path="/list">
+            <ListItem />
+          </Route>
           <Route path="/forms">
             <ListForms />
           </Route>
           <Route path="/">
-            <div className="section">
-              <h1 className="title">App</h1>
-              <div className="columns is-mobile">
-                <div className="column">
-                  <Link to="/">Home</Link>
-                </div>
-                <div className="column">
-                  <Link to="/forms">Forms</Link>
-                </div>
-                <div className="column">3</div>
-                <div className="column">4</div>
-              </div>
-            </div>
+            <MainMenu />
           </Route>
         </Switch>
-      </Router>
-    );
-  }
+      </div>
+    </Router>
+  );
+}
 
-  export default App;
+export default App;
