@@ -1,8 +1,28 @@
 import React, { useState, useEffect } from "react";
 
 import db from "../services/firebase";
+import tables from "../forms/tables";
 
-function usePcs(ref, limit) {
+const forms = [
+  {
+    ref: "pc",
+    title: "Computadores"
+  },
+  {
+    ref: "monitor",
+    title: "Monitor"
+  },
+  {
+    ref: "printer",
+    title: "Impressora"
+  },
+  {
+    ref: "power",
+    title: "Estabilizador/Nobreak"
+  }
+];
+
+function useCollection(ref, limit) {
   const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [pcs, setPcs] = React.useState([]);
@@ -14,16 +34,11 @@ function usePcs(ref, limit) {
       .onSnapshot(
         snapshot => {
           const list = [];
-          snapshot.forEach(doc => {
-            list.push(doc.data());
-          });
-          console.log(list);
+          snapshot.forEach(doc => list.push(doc.data()));
           setLoading(false);
           setPcs(list);
         },
-        err => {
-          setError(err);
-        }
+        err => setError(err)
       );
 
     return () => unsubscribe();
@@ -36,18 +51,10 @@ function usePcs(ref, limit) {
   };
 }
 
-function Item() {
-  return (
-    <div className="flex">
-      <div></div>
-    </div>
-  );
-}
-
 function ListItem() {
   const [ref, setRef] = useState("pc");
   const [limit, setLimit] = useState(10);
-  const { pcs, loading } = usePcs(ref, limit);
+  const { pcs, loading } = useCollection(ref, limit);
 
   return (
     <nav className="panel">
@@ -61,30 +68,14 @@ function ListItem() {
         </p>
       </div>
       <p className="panel-tabs">
-        <a
-          onClick={() => setRef("pc")}
-          className={ref === "pc" ? "is-active" : ""}
-        >
-          Computador
-        </a>
-        <a
-          onClick={() => setRef("monitor")}
-          className={ref === "monitor" ? "is-active" : ""}
-        >
-          Monitor
-        </a>
-        <a
-          onClick={() => setRef("power")}
-          className={ref === "power" ? "is-active" : ""}
-        >
-          Estabilizador
-        </a>
-        <a
-          onClick={() => setRef("printer")}
-          className={ref === "printer" ? "is-active" : ""}
-        >
-          Impressora
-        </a>
+        {forms.map(item => (
+          <a
+            onClick={() => setRef(item.ref)}
+            className={ref === item.ref ? "is-active" : ""}
+          >
+            {item.title}
+          </a>
+        ))}
       </p>
       {loading ? (
         <div className="container">
@@ -93,15 +84,22 @@ function ListItem() {
           </progress>
         </div>
       ) : (
-        pcs.map((pc, index) => (
-          <a key={index} className="panel-block is-active">
-            <span className="panel-icon">
-              <i className="fas fa-book" aria-hidden="true"></i>
-            </span>
-            Nome {pc.pcName} <br />
-            Local {pc.location}
-          </a>
-        ))
+        <table className="table is-fullwidth">
+          <thead>
+            {tables[ref].map(t => (
+              <th>{t.title}</th>
+            ))}
+          </thead>
+          <tbody>
+            {pcs.map(pc => (
+              <tr>
+                {tables[ref].map(f => (
+                  <td>{pc[f.field]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
       <div className="panel-block">
         <button
